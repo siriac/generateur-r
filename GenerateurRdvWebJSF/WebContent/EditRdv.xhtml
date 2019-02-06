@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<title>UPDATE D'UN RENDEZ-VOUS</title>
+</h:head>
+<h:body>
+<h:form>
+<h:panelGrid columns="2">
+<h:outputText value="Nom du Client"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.nom_client}"></h:inputText>
+<h:outputText value="Numero citerne"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.num_citerne}" />
+<h:outputText value="Numero Immatriculation"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.num_immatri}" />
+<h:outputText value="Nom du construction"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.nom_Constructeur}" />
+<h:outputText value="Numero d'abrobation"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.num_abrobation}"></h:inputText>
+<h:outputText value="Capacite Nominale"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.capa_nominal}"></h:inputText>
+<h:outputText value="Nombre de compartiment"></h:outputText>
+<h:selectOneMenu value="#{rdvMB.rdvv.nbre_compartiment}">
+   	<f:selectItem itemValue="1" itemLabel="1" />
+   	<f:selectItem itemValue="2" itemLabel="2" />
+   	<f:selectItem itemValue="3" itemLabel="3" />
+   	<f:selectItem itemValue="4" itemLabel="4" />
+   	<f:selectItem itemValue="5" itemLabel="5" />
+   	<f:selectItem itemValue="6" itemLabel="6" />
+   	<f:selectItem itemValue="7" itemLabel="7" />
+   	<f:selectItem itemValue="8" itemLabel="8" />
+   	<f:selectItem itemValue="9" itemLabel="9" />
+</h:selectOneMenu>
+<h:outputText value="Type de rendez-vous"></h:outputText>
+<h:selectOneMenu value="#{rdvMB.rdvv.type_rdv}">
+   	<f:selectItem itemValue="Primitif" itemLabel="primitif" />
+   	<f:selectItem itemValue="Periodique" itemLabel="periodique" />
+</h:selectOneMenu>
+<h:outputText value="Numero telephone"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.num_telephone}" />
+<h:outputText value="Nom photo"></h:outputText>
+<h:inputText value="#{rdvMB.rdvv.nom_photo}" />
+<h:commandButton action="#{rdvMB.updateRdv}" value="Mettre a jour" />
+</h:panelGrid>
+</h:form>
+
+</h:body>
+</html>

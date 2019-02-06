@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<h:outputStylesheet name="css/bootstrap.css" />
+
+            <h:outputScript name="bootstrap/js/bootstrap.min.js" />
+            <h:outputScript name="bootstrap/js/jquery.js" />
+
+<title>Gestion des Utilisateurs</title>
+</h:head>
+<h:body> 
+ <div class="row">
+                        <div class="panel panel-default">
+  <div class="panel-heading">Enregistrement d'un utilisateur</div>
+  <div class="panel-body col-lg-4 col col-lg-offset-5"><h:form id="myform">
+<h:panelGrid columns="2">
+<h:outputText value="Login"></h:outputText>
+<h:inputText id="login" value="#{rdvMB.login}"></h:inputText>
+<h:outputText  value="Mot De Passe"></h:outputText>
+<h:inputSecret value="#{rdvMB.password}" /> 
+<h:commandButton action="#{rdvMB.CreerUser()}" value="ok" />
+</h:panelGrid>
+</h:form></div>
+</div>
+</div>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">liste des Utilisateurs</div>
+  <div class="panel-body "><h:dataTable value="#{rdvMB.listUser}" var="cl" class="table">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Id Utilisateur " />
+</f:facet>
+<h:outputText value="#{cl.idUser}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Utilisateur" />
+</f:facet>
+<h:outputText value="#{cl.userName}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Mot de Passe" />
+</f:facet>
+<h:outputText value="#{cl.password}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Status" />
+</f:facet>
+<h:outputText value="#{cl.actived}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Modifier" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.editerUser}" value="modifier" />
+</h:form>
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Supprimer" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.deleteUser}" value="supprimer" />
+</h:form>
+</h:column>
+</h:dataTable></div>
+</div>
+</div>
+<div>
+</div>
+</h:body>
+</html>

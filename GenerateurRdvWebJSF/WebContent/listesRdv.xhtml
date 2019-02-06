@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:o="http://omnifaces.org/ui">
+<h:head>
+<h:outputStylesheet name="css/bootstrap.css" />
+
+            <h:outputScript name="bootstrap/js/bootstrap.min.js" />
+            <h:outputScript name="bootstrap/js/jquery.js" />
+<title>LISTES DES RENDEZ</title>
+</h:head>
+<h:body>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">liste des Utilisateurs</div>
+  <div class="panel-body ">
+  </div>
+</div>
+</div>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">liste des Rendez-vous</div>
+  <div class="panel-body ">
+  <h:dataTable value="#{rdvMB.listAllRdv}" var="cl" class="table-bordered">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero RDV" />
+</f:facet>
+<h:outputText value="#{cl.num_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Client" />
+</f:facet>
+<h:outputText value="#{cl.nom_client}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Date du Rendez-Vous" />
+</f:facet>
+<h:outputText value="#{cl.date_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Plaque Immatriculation Camion" />
+</f:facet>
+<h:outputText value="#{cl.num_immatri}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero Citerne" />
+</f:facet>
+<h:outputText value="#{cl.num_citerne}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Heure rendez-vous" />
+</f:facet>
+<h:outputText value="#{cl.heure_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Constructeur" />
+</f:facet>
+<h:outputText value="#{cl.nom_Constructeur}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nombre Compartiment" />
+</f:facet>
+<h:outputText value="#{cl.nbre_compartiment}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Capacite nominale" />
+</f:facet>
+<h:outputText value="#{cl.capa_nominal}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero D'abrobation" />
+</f:facet>
+<h:outputText value="#{cl.num_abrobation}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Type de rendez-vous" />
+</f:facet>
+<h:outputText value="#{cl.type_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Status Rendez-Vous" />
+</f:facet>
+<h:outputText value="#{cl.statusRdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero telephone" />
+</f:facet>
+<h:outputText value="#{cl.num_telephone}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Photo profil" />
+</f:facet>
+<o:graphicImage value="#{rdvMB.obtenirPhotoProfil(cl.num_rdv)}" dataURI="true"/>                
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Photo avant" />
+</f:facet>
+<o:graphicImage value="#{rdvMB.obtenirPhotoAvant(cl.num_rdv)}" dataURI="true"/>                
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Photo arriere" />
+</f:facet>
+<o:graphicImage value="#{rdvMB.obtenirPhotoArriere(cl.num_rdv)}" dataURI="true"/>                
+</h:column>
+</h:dataTable>
+  </div>
+</div>
+</div>
+
+</h:body>
+</html>

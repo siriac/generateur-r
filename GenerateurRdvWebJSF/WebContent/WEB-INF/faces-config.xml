@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+    <navigation-rule>
+	<from-view-id>/ModifierRdv.xhtml</from-view-id>
+	<navigation-case>
+	<from-action>#{rdvMB.editerRdv}</from-action>
+		<from-outcome>EditRdv</from-outcome>
+		<to-view-id>/EditRdv.xhtml</to-view-id>
+	</navigation-case>
+	</navigation-rule>
+ <navigation-rule>
+<from-view-id>/EditRdv.xhtml</from-view-id>
+	<navigation-case>
+	<from-action>#{rdvMB.updateRdv}</from-action>
+		<from-outcome>listesRdv</from-outcome>
+		<to-view-id>/listesRdv.xhtml</to-view-id>
+	</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+<from-view-id>/SaveHolliday.xhtml</from-view-id>
+	<navigation-case>
+	<from-action>#{rdvMB.deleteHolliday}</from-action>
+		<from-outcome>EditHolliday</from-outcome>
+		<to-view-id>/EditHolliday.xhtml</to-view-id>
+	</navigation-case>
+	</navigation-rule>
+	</faces-config>

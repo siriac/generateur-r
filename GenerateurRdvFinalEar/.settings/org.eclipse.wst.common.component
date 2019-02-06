@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="GenerateurRdvFinalEar">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="GenerateurRdv.jar" deploy-path="/" handle="module:/resource/GenerateurRdv/GenerateurRdv">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GenerateurRdvWebJSF.war" deploy-path="/" handle="module:/resource/GenerateurRdvWebJSF/GenerateurRdvWebJSF">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GenerateurRdvService.war" deploy-path="/" handle="module:/resource/GenerateurRdvService/GenerateurRdvService">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

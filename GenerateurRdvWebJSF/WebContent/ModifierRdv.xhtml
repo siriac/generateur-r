@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<title>MODIFICATION D'UN RENDEZ-VOUS</title>
+</h:head>
+<h:body>
+<h:form>
+<h:panelGrid columns="2">
+<h:outputText value="Numero du Rendez-vous"></h:outputText>
+<h:inputText value="#{rdvMB.idrdv}"></h:inputText>
+<h:commandButton action="#{rdvMB.Obtenir_Rdv()}" value="search" />
+</h:panelGrid>
+</h:form>
+<f:view>
+<h:dataTable value="#{rdvMB.rdvv}" var="cl">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero RDV" />
+</f:facet>
+<h:outputText value="#{cl.num_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Client" />
+</f:facet>
+<h:outputText value="#{cl.nom_client}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Date du Rendez-Vous" />
+</f:facet>
+<h:outputText value="#{cl.date_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Plaque Immatriculation Camion" />
+</f:facet>
+<h:outputText value="#{cl.num_immatri}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero Citerne" />
+</f:facet>
+<h:outputText value="#{cl.num_citerne}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Heure rendez-vous" />
+</f:facet>
+<h:outputText value="#{cl.heure_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Constructeur" />
+</f:facet>
+<h:outputText value="#{cl.nom_Constructeur}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nombre Compartiment" />
+</f:facet>
+<h:outputText value="#{cl.nbre_compartiment}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Capacite nominale" />
+</f:facet>
+<h:outputText value="#{cl.capa_nominal}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero D'abrobation" />
+</f:facet>
+<h:outputText value="#{cl.num_abrobation}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Type de rendez-vous" />
+</f:facet>
+<h:outputText value="#{cl.type_rdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Status Rendez-Vous" />
+</f:facet>
+<h:outputText value="#{cl.statusRdv}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero telephone" />
+</f:facet>
+<h:outputText value="#{cl.num_telephone}" />
+</h:column>
+</h:dataTable>
+</f:view>
+<div>
+	<h:form>
+	<h:commandButton action="#{rdvMB.editerRdv}" value="Modifier" />
+	</h:form>
+</div>
+</h:body>
+</html>

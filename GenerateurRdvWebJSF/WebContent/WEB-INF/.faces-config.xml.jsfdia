@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#ModifierRdv.xhtml" PATH="/ModifierRdv.xhtml"
+  SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#ModifierRdv.xhtml:0" NAME="item"
+   PATH="/ModifierRdv.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="EditRdv:#{rdvMB.editerRdv}:#EditRdv.xhtml"
+    NAME="output" PATH="/EditRdv.xhtml" TARGET="rules:#EditRdv.xhtml"
+    TITLE="#{rdvMB.editerRdv}:EditRdv" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#EditRdv.xhtml" PATH="/EditRdv.xhtml"
+  SHAPE="240,369,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#EditRdv.xhtml:0" NAME="item"
+   PATH="/EditRdv.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listesRdv:#{rdvMB.updateRdv}:#listesRdv.xhtml" NAME="output"
+    PATH="/listesRdv.xhtml" TARGET="rules:#listesRdv.xhtml"
+    TITLE="#{rdvMB.updateRdv}:listesRdv" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#SaveHolliday.xhtml"
+  PATH="/SaveHolliday.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#SaveHolliday.xhtml:0" NAME="item"
+   PATH="/SaveHolliday.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="EditHolliday:#{rdvMB.deleteHolliday}:#EditHolliday.xhtml"
+    NAME="output" PATH="/EditHolliday.xhtml"
+    TARGET="rules:#EditHolliday.xhtml"
+    TITLE="#{rdvMB.deleteHolliday}:EditHolliday" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#EditHolliday.xhtml"
+  PATH="/EditHolliday.xhtml" SHAPE="448,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listesRdv.xhtml" PATH="/listesRdv.xhtml"
+  SHAPE="448,353,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

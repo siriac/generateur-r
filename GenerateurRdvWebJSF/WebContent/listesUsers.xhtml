@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>LISTES DES UTILISATEURS</title>
+            <h:outputStylesheet name="css/bootstrap.css" />
+
+            <h:outputScript name="bootstrap/js/bootstrap.min.js" />
+
+                       
+</h:head>
+<h:body>
+                        <h:commandButton action="addEmployee" value="Add New" class="btn btn-primary" />
+<div>
+<h1>LISTES DES UTILISATEURS</h1>
+</div>
+<div>
+<h:dataTable value="#{rdvMB.listUser}" var="cl" class="table">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Id Utilisateur " />
+</f:facet>
+<h:outputText value="#{cl.idUser}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Utilisateur" />
+</f:facet>
+<h:outputText value="#{cl.userName}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Mot de Passe" />
+</f:facet>
+<h:outputText value="#{cl.password}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Status" />
+</f:facet>
+<h:outputText value="#{cl.actived}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Modifier" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.editerUser}" value="modifier" />
+</h:form>
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Supprimer" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.deleteUser}" value="supprimer" />
+</h:form>
+</h:column>
+</h:dataTable>
+</div>
+</h:body>
+</html>

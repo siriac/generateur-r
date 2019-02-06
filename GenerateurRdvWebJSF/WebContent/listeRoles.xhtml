@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>LISTES DES ROLES</title>
+</h:head>
+<h:body>
+<div>
+<h1>LISTES DES ROLES</h1>
+</div>
+<div>
+<h:dataTable value="#{rdvMB.listRole}" var="cl">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Id Role " />
+</f:facet>
+<h:outputText value="#{cl.idRole}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Du Role" />
+</f:facet>
+<h:outputText value="#{cl.roleName}" />
+</h:column>
+<f:facet name="header">
+<h:outputText value="Modifier" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.editerRole}" value="modifier" />
+</h:form>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Supprimer" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.deleteRole}" value="supprimer" />
+</h:form>
+</h:column>
+</h:dataTable>
+</div>
+</h:body>
+</html>

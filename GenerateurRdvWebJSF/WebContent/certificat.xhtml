@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<h:outputStylesheet name="css/bootstrap.css" />
+
+            <h:outputScript name="bootstrap/js/bootstrap.min.js" />
+            <h:outputScript name="bootstrap/js/jquery.js" />
+<link rel="stylesheet" href="resources/css/jquery-ui.css"/>
+  <link rel="stylesheet" href="resources/css/style.css"/>
+  <script type="text/javascript" src="resources/js/jquery-1.js"></script>
+  <script type="text/javascript" src="resources/js/jquery-ui.js"></script>
+  <script type="text/javascript">
+  $( function() {
+    $( "#myform\\:datepicker" ).datepicker({
+      showOn: "button",
+      buttonImage: "resources/img//calendar.gif",
+      buttonImageOnly: true,
+      buttonText: "Select date",
+      dateFormat:'yy-mm-dd'
+    });
+  } );
+  </script>
+<title>Enregistrement d'un certificat de jaugeage</title>
+</h:head>
+<h:body>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">Enregistrement Certificat de jaugeage</div>
+  <div class="panel-body col-lg-4 col col-lg-offset-4">
+  <h:form id="myform">
+<h:panelGrid columns="2">
+<h:outputText value="Nom du Client"></h:outputText>
+<h:inputText value="#{rdvMB.nom_cli}"></h:inputText>
+<h:outputText value="Numero citerne"></h:outputText>
+<h:inputText value="#{rdvMB.num_citern}" />
+<h:outputText value="Numero Immatriculation"></h:outputText>
+<h:inputText value="#{rdvMB.num_Imatr}" />
+<h:outputText value="Nom du construction"></h:outputText>
+<h:inputText value="#{rdvMB.nom_Constructeur}" />
+<h:outputText value="Numero d'abrobation"></h:outputText>
+<h:inputText value="#{rdvMB.num_abrobation}"></h:inputText>
+<h:outputText value="Capacite Nominale"></h:outputText>
+<h:selectOneMenu value="#{rdvMB.capa_nominal}">
+   	<f:selectItem itemValue="1000" itemLabel="1000" />
+   	<f:selectItem itemValue="2000" itemLabel="2000" />
+   	<f:selectItem itemValue="3000" itemLabel="3000" />
+   	<f:selectItem itemValue="4000" itemLabel="4000" />
+   	<f:selectItem itemValue="5000" itemLabel="5000" />
+   	<f:selectItem itemValue="6000" itemLabel="6000" />
+   	<f:selectItem itemValue="7000" itemLabel="7000" />
+   	<f:selectItem itemValue="8000" itemLabel="8000" />
+   	<f:selectItem itemValue="9000" itemLabel="9000" />
+</h:selectOneMenu>
+<h:outputText value="Nombre de compartiment"></h:outputText>
+<h:selectOneMenu value="#{rdvMB.nbre_compartiment}">
+   	<f:selectItem itemValue="1" itemLabel="1" />
+   	<f:selectItem itemValue="2" itemLabel="2" />
+   	<f:selectItem itemValue="3" itemLabel="3" />
+   	<f:selectItem itemValue="4" itemLabel="4" />
+   	<f:selectItem itemValue="5" itemLabel="5" />
+   	<f:selectItem itemValue="6" itemLabel="6" />
+   	<f:selectItem itemValue="7" itemLabel="7" />
+   	<f:selectItem itemValue="8" itemLabel="8" />
+   	<f:selectItem itemValue="9" itemLabel="9" />
+</h:selectOneMenu>
+<h:outputText value="Type de rendez-vous"></h:outputText>
+<h:selectOneMenu value="#{rdvMB.type_rdv}">
+   	<f:selectItem itemValue="Primitif" itemLabel="primitif" />
+   	<f:selectItem itemValue="Periodique" itemLabel="periodique" />
+</h:selectOneMenu>
+<h:outputText value="Numero telephone"></h:outputText>
+<h:inputText value="#{rdvMB.num_tele}" />
+<h:outputText value="selectionner la date du jaugeage"></h:outputText>
+<h:inputText id="datepicker" value="#{rdvMB.dateJaug}"></h:inputText>
+<h:commandButton action="#{rdvMB.creerCertificat}" value="OK" />
+</h:panelGrid>
+</h:form>
+  </div>
+</div>
+</div>
+
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">liste des Certificats</div>
+  <div class="panel-body ">
+<h:dataTable value="#{rdvMB.listCertiJaugage}" var="cl" class="table-bordered">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero RDV" />
+</f:facet>
+<h:outputText value="#{cl.idCerti}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom Client" />
+</f:facet>
+<h:outputText value="#{cl.nomCli}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Date du Rendez-Vous" />
+</f:facet>
+<h:outputText value="#{cl.dateJaugeage}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Plaque Immatriculation Camion" />
+</f:facet>
+<h:outputText value="#{cl.numImm}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero Citerne" />
+</f:facet>
+<h:outputText value="#{cl.numCiter}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nombre Compartiment" />
+</f:facet>
+<h:outputText value="#{cl.nombreCompat}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Capacite nominale" />
+</f:facet>
+<h:outputText value="#{cl.capaNomi}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero D'abrobation" />
+</f:facet>
+<h:outputText value="#{cl.numAbroba}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Type de rendez-vous" />
+</f:facet>
+<h:outputText value="#{cl.typeRendez}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Status Rendez-Vous" />
+</f:facet>
+<h:outputText value="#{cl.status}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Date expiration" />
+</f:facet>
+<h:outputText value="#{cl.datexpiration}" />
+</h:column>
+</h:dataTable>
+</div>
+</div>
+</div>
+</h:body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:o="http://omnifaces.org/ui">
+<h:head>
+<h:outputStylesheet name="css/bootstrap.css" />
+
+            <h:outputScript name="bootstrap/js/bootstrap.min.js" />
+            <h:outputScript name="bootstrap/js/jquery.js" />
+<title>Liste des Certificats non scdp</title>
+</h:head>
+<h:body>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading">Information du certificat</div>
+  <div class="panel-body col-lg-4 col col-lg-offset-3">
+  <h:dataTable value="#{rdvMB.listCertificatNonScdp}" var="cl" class="table-bordered">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero Certificat" />
+</f:facet>
+<h:outputText value="#{cl.id_Certificate}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero Immatriculation" />
+</f:facet>
+<h:outputText value="#{cl.num_Immatr}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Numero Citerne" />
+</f:facet>
+<h:outputText value="#{cl.nom_Photo}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Ouvrir Image" />
+</f:facet>
+<o:graphicImage value="#{rdvMB.obtenirCertificat(cl.id_Certificate)}" dataURI="true"/>                
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Supprimer" />
+</f:facet>
+<h:commandButton action="#{rdvMB.deleteCertiNonSdp}" value="supprimer" />
+</h:column>
+</h:dataTable>
+  </div>
+</div>
+</div>
+<div>
+
+</div>
+</h:body>
+</html>

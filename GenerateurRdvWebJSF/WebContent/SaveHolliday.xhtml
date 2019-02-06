@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<link rel="stylesheet" href="resources/css/jquery-ui.css"/>
+  <link rel="stylesheet" href="resources/css/style.css"/>
+  <script type="text/javascript" src="resources/js/jquery-1.js"></script>
+  <script type="text/javascript" src="resources/js/jquery-ui.js"></script>
+  <script type="text/javascript">
+  $( function() {
+    $( "#myform\\:datepicker" ).datepicker({
+      showOn: "button",
+      buttonImage: "resources/img//calendar.gif",
+      buttonImageOnly: true,
+      buttonText: "Select date",
+      dateFormat:'yy-mm-dd'
+    });
+  } );
+  </script>
+<title>ENREGISTREMENT DES JOURS FERIES</title>
+</h:head>
+<h:body>
+<h:form id="myform">
+<h:panelGrid columns="2">
+<h:outputText value="selectionner la date Jour Ferie"></h:outputText>
+<h:inputText id="datepicker" value="#{rdvMB.date_jour_ferie}"></h:inputText>
+<h:outputText value="nom du jour"></h:outputText>
+<h:inputText value="#{rdvMB.nom_jour_ferie}"></h:inputText>
+<h:commandButton action="#{rdvMB.InsererJourFerier}" value="ok" />
+</h:panelGrid>
+</h:form>
+<div>
+<h1><h:outputText value="#{rdvMB.state}" /></h1>
+</div>
+<div>
+<h1>LISTES DE TOUS LES JOURS FERIES</h1>
+</div>
+<div>
+<h:dataTable value="#{rdvMB.listHolliday}" var="cl">
+<h:column>
+<f:facet name="header">
+<h:outputText value="Id Jour " />
+</f:facet>
+<h:outputText value="#{cl.idHolliday}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Date du Jour" />
+</f:facet>
+<h:outputText value="#{cl.day}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Nom du jour " />
+</f:facet>
+<h:outputText value="#{cl.nameHolliday}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Date raccourci" />
+</f:facet>
+<h:outputText value="#{cl.shotDay}" />
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Modifier" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.editerHolliday}" value="modifier" />
+</h:form>
+</h:column>
+<h:column>
+<f:facet name="header">
+<h:outputText value="Supprimer" />
+</f:facet>
+<h:form>
+<h:commandButton action="#{rdvMB.deleteHolliday}" value="supprimer" />
+</h:form>
+</h:column>
+</h:dataTable>
+</div>
+</h:body>
+</html>
